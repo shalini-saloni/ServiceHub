@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { ShoppingCart, User, Search , MapPin } from 'lucide-react';
+import { ShoppingCart, User, Search, MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
+import logo from '../images/logo.png';
 
 const Navbar = () => {
   const serviceSuggestions = ['maid', 'carpenter', 'plumber', 'electrician', 'gardener'];
@@ -12,33 +13,37 @@ const Navbar = () => {
     const interval = setInterval(() => {
       index = (index + 1) % serviceSuggestions.length;
       setPlaceholder(`Search for "${serviceSuggestions[index]}"`);
-    }, 2000); // rotates every 2 seconds
+    }, 2000);
 
-    return () => clearInterval(interval); // cleanup
+    return () => clearInterval(interval);
   }, []);
 
   return (
     <nav className="navbar">
-      {/* Logo */}
-      <Link to="/" className="logo">MyServiceApp</Link>
+      {/* Left: Logo + Links */}
+      <div className="navbar-left">
+        <Link to="/" className="logo">
+          <img src={logo} alt="Logo" />
+        </Link>
 
-      {/* Center Links */}
-      <div className="nav-links">
-        <Link to="/">Home</Link>
-        <Link to="/services">Services</Link>
-        <Link to="/book">Book</Link>
+        <div className="nav-links">
+          <Link to="/">Home</Link>
+          <Link to="/about">About Us</Link>
+          <Link to="/services">Services</Link>
+          <Link to="/hire">Hire</Link>
+        </div>
       </div>
 
-      {/* Right: Search + Icons */}
+      {/* Right: Inputs + Icons */}
       <div className="navbar-right">
-      <div className="input-location-wrapper">
-  <input
-    type="text"
-    placeholder="Enter Location"
-    className="input-location"
-  />
-  <MapPin className="location-icon" size={18} />
-</div>
+        <div className="input-location-wrapper">
+          <input
+            type="text"
+            placeholder="Enter Location"
+            className="input-location"
+          />
+          <MapPin className="location-icon" size={18} />
+        </div>
 
         <div className="input-service-wrapper">
           <input
