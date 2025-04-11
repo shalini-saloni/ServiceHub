@@ -31,6 +31,7 @@ const Navbar = () => {
           <Link to="/about">About Us</Link>
           <Link to="/services">Services</Link>
           <Link to="/hire">Hire</Link>
+          <Link to="/#contact">Contact Us</Link>
         </div>
       </div>
 
@@ -56,7 +57,11 @@ const Navbar = () => {
 
         <div className="icon-buttons">
           <button className="icon-button"><ShoppingCart size={22} /></button>
-          <button className="icon-button"><User size={22} /></button>
+          <Link to="/login">
+            <button className="icon-button">
+              <User size={22} />
+            </button>
+          </Link>
         </div>
       </div>
     </nav>
