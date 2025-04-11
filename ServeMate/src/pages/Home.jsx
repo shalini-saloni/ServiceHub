@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './Home.css';
 import workerImg from '../images/cooking.jpeg';
 import { Hammer, Paintbrush, Wrench, Zap, Ruler, Package } from 'lucide-react';
+import ContactSection from '../components/Contact';
 
 const services = [
   {
@@ -94,8 +95,12 @@ const Home = () => {
     <div className="view-all-wrapper">
       <Link to="/services" className="btn">View All Services</Link>
     </div>
+
+    
   </div>
-</section>
+  </section>
+
+      <ContactSection />
 
     </>
   );
