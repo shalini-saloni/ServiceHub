@@ -1,0 +1,261 @@
+.about-page {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .video-section {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .background-video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+  }
+  
+  .overlay-content {
+    position: relative; /* ← removed absolute */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding: 2rem;
+    max-width: 90%;
+    margin: 0 auto;
+  }
+  
+  
+  .overlay-content h4 {
+    font-size: 1rem;
+    color: #4f9fff;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+  }
+  
+  .overlay-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color:#1c2e46;
+  }
+  
+  .overlay-content p {
+    color: #4c4a4a;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+  
+  .about-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 2rem;
+  }
+  
+  .about-stats div {
+    text-align: center;
+  }
+  
+  .about-stats strong {
+    font-size: 2rem;
+    display: block;
+    color:rgb(251, 253, 254);
+  }
+  
+  .about-stats span {
+    font-size: 0.8rem;
+    color: #726a6a;
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 0.8rem 1.6rem;
+    font-weight: bold;
+    border-radius: 8px;
+    border: 2px solid #4f9fff;
+    background-color: #e9ecf0;
+    color: #4f9fff;
+    transition: all 0.4s ease;
+    cursor: pointer;
+  }
+  
+  .btn:hover {
+    background-color: #4f9fff;
+    color: #fff;
+  }
+
+  .why-choose-us {
+    padding: 4rem 1rem;
+    background-color: #1c2e46;
+    color: #f9fafb;
+    text-align: center;
+    height: 100vh;
+  }
+
+  .why-choose-us h4 {
+    display: flex;
+    justify-content: flex-start;
+    color:#4f9fff;
+    margin-left: 15rem;
+  }
+  
+  .why-choose-us h2 {
+    display: flex;
+    justify-content: flex-start;
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    margin-left: 15rem;
+  }
+  
+  .why-choose-us p {
+    display: flex;
+    justify-content: flex-start;
+    max-width: 100%;
+    margin: 0 auto 2.5rem;
+    color: #7b7d80;
+    margin-left: 15rem;
+    font-size:large;
+  }
+  
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-bottom: 2rem;
+  }
+  
+  .card {
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    text-align: left;
+    transition: all 0.3s ease;
+  }
+  
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .toggle-button{
+    background-color: #9d9ea1;
+  }
+  
+  .card-header strong {
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    color:#1c2e46
+  }
+  
+  .icon {
+    font-size: 1.2rem;
+    color: #0a1f35;
+  }
+  
+  .card-description {
+    margin-top: 1rem;
+    font-size: 0.95rem;
+    color: #374151;
+  }
+
+
+  .our-story-section {
+    padding: 4rem 1rem;
+    background-color: #fff;
+    color: #0a1f35;
+  }
+  
+  .story-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2rem;
+  }
+  
+  .story-image img {
+    width: 100%;
+    max-width: 650px;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+  
+  .story-text {
+    flex: 1;
+    min-width: 280px;
+  }
+  
+  .story-text h5 {
+    font-size: 0.9rem;
+    color:#4f9fff;
+    letter-spacing: 2px;
+    margin-bottom: 0.1rem;
+    margin-left: 3rem;
+  }
+  
+  .story-text h2 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    margin-left: 3rem;
+    font-family:fantasy;
+    font-weight: bolder;
+  }
+  
+  .story-text p {
+    font-size: 1.3rem;
+    color: #4b5563;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    margin-left: 3rem;
+  }
+  
+  .story-feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .story-feature strong {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    color: #4b709a;
+    margin-top: 2rem;
+    text-decoration:dashed;
+  }
+  
+  .story-feature p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #374151;
+    
+  }
+  
+  .story-icon {
+    font-size: 1.5rem;
+    color: #4f9fff;
+    margin-top: 2rem;
+    margin-left: 2.5rem;
+  }
+  
+  
+  

@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import Services from './pages/Services';
 import Hire from './pages/Hire';
 import Login from './pages/Login';
+import About from './pages/About';
 import './App.css';
 
 
@@ -18,6 +19,7 @@ function App() {
         <Route path="/services" element={<Services />} />
         <Route path="/hire" element={<Hire />} />
         <Route path="/login" element={<Login />} /> 
+        <Route path="/about" element={<About />} />
       </Routes>
     </Router>
   );
