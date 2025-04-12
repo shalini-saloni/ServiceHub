@@ -84,7 +84,7 @@ const About = () => {
             With quality workmanship and exceptional service, we've been <br />
             proudly serving communities for over 10 years.
           </p>
-          <a href="#about-contact" className="btn">Contact Us</a>
+          <a href="#about-contact" className="btnn">Contact Us</a>
 
           <div className="about-stats">
             <div><strong>10y</strong><span>EXPERIENCE</span></div>
