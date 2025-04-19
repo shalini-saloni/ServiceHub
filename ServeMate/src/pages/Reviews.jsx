@@ -71,7 +71,6 @@ const Reviews = () => {
       }
   ];
 
-  // Preload images
   useEffect(() => {
     const loadImages = reviews.map(review => {
       const img = new Image();

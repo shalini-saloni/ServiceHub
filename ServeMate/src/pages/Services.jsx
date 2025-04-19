@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import './Services.css';
 import Reviews from "./Reviews"
+import Contact from "../components/Contact"
+import Footer from '../components/Footer';
 import homeRepairsImg from '../images/homeRepair.jpg';
 import decoratingImg from '../images/painting.jpg';
 import plumbingImg from '../images/plumber.jpg';
@@ -83,7 +85,12 @@ const Services = () => {
           <p className="services-tag">HANDYHUB</p>
           <h1>Expert handyman<br />services for every need</h1>
           <p className="services-subtext">Fast, reliable, and affordable home maintenance solutions</p>
-          <button className="services-btn">Contact Us</button>
+          <button
+              className="services-btn"
+              onClick={() => {document.getElementById('service-contact')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+          >Contact Us</button>
+
         </div>
       </section>
 
@@ -130,6 +137,10 @@ const Services = () => {
         </div>
       </section>
       <Reviews/>
+      <div id="service-contact">
+            <Contact /> 
+        </div>
+      <Footer/>
     </div>
   );
 };
