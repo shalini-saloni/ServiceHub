@@ -102,7 +102,7 @@ const serviceData = [
     description: "Fixing holes and cracks in drywall",
     rate: "$65/hour",
     rating: 4.7,
-    image: "/Images/Pic1.jpg",
+    image: "/img/Home1.jpg",
     category: "repairs"
   },
   {
@@ -111,7 +111,7 @@ const serviceData = [
     description: "Interior/exterior door installation",
     rate: "$80/hour",
     rating: 4.8,
-    image: "https://example.com/repairs2.jpg",
+    image: "/img/Home2.jpg",
     category: "repairs"
   },
   {
@@ -120,7 +120,7 @@ const serviceData = [
     description: "Fixing broken windows and frames",
     rate: "$75/hour",
     rating: 4.6,
-    image: "https://example.com/repairs3.jpg",
+    image: "/img/Home3.jpg",
     category: "repairs"
   },
   {
@@ -129,7 +129,7 @@ const serviceData = [
     description: "Hardwood, tile, and laminate repairs",
     rate: "$70/hour",
     rating: 4.7,
-    image: "https://example.com/repairs4.jpg",
+    image: "/img/Home4.jpg",
     category: "repairs"
   },
   {
@@ -138,7 +138,7 @@ const serviceData = [
     description: "Small roof repairs and leak fixes",
     rate: "$90/hour",
     rating: 4.8,
-    image: "https://example.com/repairs5.jpg",
+    image: "/img/Home5.jpg",
     category: "repairs"
   },
   {
@@ -147,7 +147,7 @@ const serviceData = [
     description: "Fixing and replacing gutters",
     rate: "$60/hour",
     rating: 4.6,
-    image: "https://example.com/repairs6.jpg",
+    image: "/img/Home6.jpg",
     category: "repairs"
   },
   {
@@ -156,7 +156,7 @@ const serviceData = [
     description: "Wooden deck restoration",
     rate: "$75/hour",
     rating: 4.7,
-    image: "https://example.com/repairs7.jpg",
+    image: "/img/Home7.jpg",
     category: "repairs"
   },
   {
@@ -165,7 +165,7 @@ const serviceData = [
     description: "Wood and metal fence fixes",
     rate: "$65/hour",
     rating: 4.6,
-    image: "https://example.com/repairs8.jpg",
+    image: "/img/Home8.jpg",
     category: "repairs"
   },
   {
@@ -174,7 +174,7 @@ const serviceData = [
     description: "Fixing loose or damaged stairs",
     rate: "$85/hour",
     rating: 4.8,
-    image: "https://example.com/repairs9.jpg",
+    image: "/img/Home9.jpg",
     category: "repairs"
   },
   {
