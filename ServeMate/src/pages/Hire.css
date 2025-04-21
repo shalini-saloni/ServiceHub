@@ -1,0 +1,213 @@
+.hire-services-page {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    background-color: #f8f9fa;
+    min-height: 100vh;
+    padding: 2rem 0;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  
+  .hire-services-page h1 {
+    text-align: center;
+    color: #0a1823;
+    margin-bottom: 1.5rem;
+    font-size: 2.2rem;
+  }
+  
+  .services-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    color: #555;
+    font-size: 1.1rem;
+  }
+  
+  .filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-bottom: 2.5rem;
+  }
+  
+  .filter-btn {
+    padding: 0.6rem 1.2rem;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+  
+  .filter-btn:hover {
+    background-color: #afabab;
+    border:#afabab ;
+  }
+  
+  .filter-btn.active {
+    background-color: #0a1823;
+    color: white;
+    border-color: #0a1823;
+  }
+  
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+  
+  .service-card {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(212, 210, 210, 0.15);
+    background-color: #cfcccc;
+    border: #ddd;
+  }
+  
+  .service-image-container {
+    height: 180px;
+    overflow: hidden;
+  }
+  
+  .service-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  
+  .service-card:hover .service-image {
+    transform: scale(1.05);
+  }
+  
+  .service-content {
+    padding: 1.5rem;
+  }
+  
+  .service-name {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: #0a1823;
+  }
+  
+  .service-description {
+    color: #666;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+  
+  .service-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.2rem;
+  }
+  
+  .service-rate {
+    font-weight: bold;
+    color: #0a1823;
+    font-size: 1.1rem;
+  }
+  
+  .service-rating {
+    display: flex;
+    align-items: center;
+  }
+  
+  .stars {
+    color: #f39c12;
+    letter-spacing: 1px;
+    margin-right: 5px;
+  }
+  
+  .rating-text {
+    color: #777;
+    font-size: 0.9rem;
+  }
+  
+  .cart-btn {
+    width: 100%;
+    padding: 0.8rem;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .cart-btn.add {
+    background-color: #0a1823;
+  }
+  
+  .cart-btn.add:hover {
+    background-color: #27ae60;
+  }
+  
+  .cart-btn.remove {
+    background-color: #f3b24b;
+  }
+  
+  .cart-btn.remove:hover {
+    background-color: #e85a5a;
+    border: #f39c12;
+  }
+  
+  /* If you want to keep the added state style */
+  .cart-btn.added {
+    background-color: #27ae60;
+    cursor: default;
+  }
+  
+  @media (max-width: 768px) {
+    .services-grid {
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+    
+    .hire-services-page h1 {
+      font-size: 1.8rem;
+    }
+    
+    .services-intro {
+      font-size: 1rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .filter-btn {
+      padding: 0.5rem 1rem;
+      font-size: 0.85rem;
+    }
+  }
+
+  button:focus, .filter-btn:focus {
+    outline: none;
+  }
+
+  button:focus, .cart-btn:focus {
+    outline: none;
+  }

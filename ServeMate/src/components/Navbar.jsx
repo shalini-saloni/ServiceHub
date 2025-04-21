@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import './Navbar.css';
 import logo from '../images/logo.png';
 
-const Navbar = () => {
+const Navbar = ({ cartItems }) => {
   const serviceSuggestions = ['maid', 'carpenter', 'plumber', 'electrician', 'gardener'];
   const [placeholder, setPlaceholder] = useState('Search for "maid"');
 
@@ -56,7 +56,12 @@ const Navbar = () => {
         </div>
 
         <div className="icon-buttons">
-          <button className="icon-button"><ShoppingCart size={22} /></button>
+          <button className="icon-button">
+            <ShoppingCart size={22} />
+            {cartItems.length > 0 && (
+              <span className="cart-badge">{cartItems.length}</span>
+            )}
+          </button>
           <Link to="/login">
             <button className="icon-button">
               <User size={22} />
