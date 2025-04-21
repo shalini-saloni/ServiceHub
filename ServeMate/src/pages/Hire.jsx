@@ -50,7 +50,7 @@ const Hire = ({ setCartItems }) => {
           ))}
         </div>
         
-        <div className="services-grid">
+        <div className="service-grid">
           {filteredServices.map(service => {
             const isInCart = localCartItems.some(item => item.id === service.id);
             return (

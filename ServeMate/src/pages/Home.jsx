@@ -104,7 +104,7 @@ const Home = () => {
 
           <div className="services-grid">
             {services.map((service, idx) => (
-              <div className="service-card" key={idx}>
+              <div className="services-card" key={idx}>
                 <div className="icon">{service.icon}</div>
                 <h3>{service.title}</h3>
                 <p>{service.desc}</p>

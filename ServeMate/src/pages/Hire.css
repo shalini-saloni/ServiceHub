@@ -1,7 +1,7 @@
 .hire-services-page {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #333;
-    background-color: #f8f9fa;
+    background-color: #d7dadd;
     min-height: 100vh;
     padding: 2rem 0;
   }
@@ -57,7 +57,7 @@
     border-color: #0a1823;
   }
   
-  .services-grid {
+  .service-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 2rem;

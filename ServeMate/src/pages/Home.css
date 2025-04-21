@@ -186,8 +186,8 @@
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
   }
-  
-  .service-card {
+
+  .services-card {
     background-color: #ffffff;
     border: 1px solid #e5e7eb;
     padding: 2rem;
@@ -197,23 +197,23 @@
     border-radius: 0.5rem;
   }
   
-  .service-card:hover {
-    background-color: #add5ef; /* light blue on hover */
+  .services-card:hover {
+    background-color: #9fd0f0; /* light blue on hover */
     border-color: #38bdf8;
   }
   
-  .service-card .icon {
+  .services-card .icon {
     margin-bottom: 1rem;
     color: #0a1f35;
   }
   
-  .service-card h3 {
+  .services-card h3 {
     font-size: 1.1rem;
     margin-bottom: 0.5rem;
     font-weight: 600;
   }
   
-  .service-card p {
+  .services-card p {
     font-size: 0.95rem;
     color: #4b5563;
     margin-bottom: 1.2rem;
