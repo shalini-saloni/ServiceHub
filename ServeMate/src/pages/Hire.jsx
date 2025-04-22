@@ -562,7 +562,7 @@ const serviceData = [
     description: "All types of bed frames",
     rate: "$50-150",
     rating: 4.7,
-    image: "https://example.com/furniture1.jpg",
+    image: "/img2/Ass1.jpg",
     category: "furniture"
   },
   {
@@ -571,7 +571,7 @@ const serviceData = [
     description: "Closet systems setup",
     rate: "$60-200",
     rating: 4.8,
-    image: "https://example.com/furniture2.jpg",
+    image: "/img2/Ass2.jpg",
     category: "furniture"
   },
   {
@@ -580,7 +580,7 @@ const serviceData = [
     description: "Office furniture assembly",
     rate: "$40-120",
     rating: 4.7,
-    image: "https://example.com/furniture3.jpg",
+    image: "/img2/Ass3.jpg",
     category: "furniture"
   },
   {
@@ -589,7 +589,7 @@ const serviceData = [
     description: "Shelving units setup",
     rate: "$30-100",
     rating: 4.6,
-    image: "https://example.com/furniture4.jpg",
+    image: "/img2/Ass4.jpg",
     category: "furniture"
   },
   {
@@ -598,7 +598,7 @@ const serviceData = [
     description: "TV stand assembly",
     rate: "$50-150",
     rating: 4.7,
-    image: "https://example.com/furniture5.jpg",
+    image: "/img2/Ass5.jpg",
     category: "furniture"
   },
   {
@@ -607,7 +607,7 @@ const serviceData = [
     description: "Table and chair assembly",
     rate: "$60-180",
     rating: 4.8,
-    image: "https://example.com/furniture6.jpg",
+    image: "/img2/Ass6.jpg",
     category: "furniture"
   },
   {
@@ -616,7 +616,7 @@ const serviceData = [
     description: "Patio set assembly",
     rate: "$70-200",
     rating: 4.7,
-    image: "https://example.com/furniture7.jpg",
+    image: "/img2/Ass7.jpg",
     category: "furniture"
   },
   {
@@ -625,7 +625,7 @@ const serviceData = [
     description: "Cribs and changing tables",
     rate: "$50-150",
     rating: 4.9,
-    image: "https://example.com/furniture8.jpg",
+    image: "/img2/Ass8.jpg",
     category: "furniture"
   },
   {
@@ -634,7 +634,7 @@ const serviceData = [
     description: "Treadmills and home gyms",
     rate: "$80-250",
     rating: 4.7,
-    image: "https://example.com/furniture9.jpg",
+    image: "/img2/Ass9.jpg",
     category: "furniture"
   },
   {

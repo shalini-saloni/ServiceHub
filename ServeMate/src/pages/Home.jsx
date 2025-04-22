@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Link as RouterLink } from 'react-router-dom';
 import './Home.css';
-import workerImg from '../images/cooking.jpeg';
+import workerImg from '../images/Front.jpg';
 import { Hammer, Paintbrush, Wrench, Zap, Ruler, Package } from 'lucide-react';
 import ContactSection from '../components/Contact';
 import Footer from '../components/Footer';

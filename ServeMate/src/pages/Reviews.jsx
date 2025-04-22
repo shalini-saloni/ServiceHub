@@ -8,66 +8,66 @@ const Reviews = () => {
   const reviews = [
     {
       id: 1,
-      name: "JOHN SMITH",
+      name: "Krushn Dayshmookh",
       heading: "FANTASTIC WORK!",
       text: "\"I needed a few small repairs done around the house, and Handyhub was fantastic!\"",
-      image: "/Images/Pic1.jpg" 
+      image: "/Images/pic1.jpeg" 
     },
     {
       id: 2,
-      name: "LARA NOVA",
+      name: "Abhinav",
       heading: "EXCELLENT WORK!",
       text: "\"The team was knowledgeable, courteous, and completed the job on time and within budget. Our new kitchen looks amazing!\"",
-      image: "/Images/Pic2.jpg" 
+      image: "/Images/pic2.jpeg" 
     },
     {
       id: 3,
-      name: "MICHAEL BROWN",
+      name: "Rishabh Bafna",
       heading: "HIGHLY RECOMMEND!",
       text: "\"Professional, efficient, and friendly. They made the entire process so smooth and stress-free.\"",
-      image: "/Images/Pic3.jpg" 
+      image: "/Images/pic3.jpeg" 
     },
     {
       id: 4,
-      name: "JAYA KAPOOR",
+      name: "Sahil Manjhi",
       heading: "GREAT EXPERIENCE!",
       text: "\"From start to finish, the communication and quality of work were excellent. I'll definitely use their services again.\"",
-      image: "/Images/Pic4.jpg" 
+      image: "/Images/pic4.jpeg" 
     },
     {
         id: 5,
-        name: "SARAH JOHNSON",
+        name: "Arohi",
         heading: "IMPRESSIVE SERVICE!",
         text: "\"Handyhub transformed our bathroom beautifully. The attention to detail was remarkable and the team was so professional.\"",
-        image: "/Images/Pic5.jpg" 
+        image: "/Images/pic5.jpeg" 
       },
       {
         id: 6,
-        name: "RAVI KUMAR",
+        name: "Sarika Jadhav",
         heading: "TOP-NOTCH QUALITY!",
         text: "\"The electrician they sent was incredibly skilled. Fixed issues others couldn't. Pricing was fair and transparent.\"",
-        image: "/Images/Pic6.jpg" 
+        image: "/Images/pic6.jpeg" 
       },
       {
         id: 7,
-        name: "EMRAN THOMPSON",
+        name: "Khyati Kapil",
         heading: "BEYOND EXPECTATIONS!",
         text: "\"Our home renovation was completed ahead of schedule. The craftsmanship is exceptional - worth every penny!\"",
-        image: "/Images/Pic7.jpg" 
+        image: "/Images/pic7.jpeg" 
       },
       {
         id: 8,
-        name: "SOPHIE",
+        name: "Shubhi",
         heading: "RELIABLE & TRUSTWORTHY!",
         text: "\"Used Handyhub for multiple projects. Consistent quality every time. My go-to for all home improvement needs.\"",
-        image: "/Images/Pic8.jpg" 
+        image: "/Images/pic8.jpeg" 
       },
       {
         id: 9,
-        name: "GURPREET SINGH",
+        name: "Priyanshu",
         heading: "WONDERFUL EXPERIENCE!",
         text: "\"The painters did an amazing job on our entire house. Clean, efficient, and the colors are perfect!\"",
-        image: "/Images/Pic9.jpg" 
+        image: "/Images/pic9.jpeg" 
       }
   ];
 
