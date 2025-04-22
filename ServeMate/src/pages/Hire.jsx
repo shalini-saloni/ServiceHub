@@ -470,7 +470,7 @@ const serviceData = [
     description: "Built-to-order cabinetry",
     rate: "$100/hour",
     rating: 4.9,
-    image: "https://example.com/carpentry1.jpg",
+    image: "/img2/Car1.jpg",
     category: "carpentry"
   },
   {
@@ -479,7 +479,7 @@ const serviceData = [
     description: "Custom shelving installation",
     rate: "$75/hour",
     rating: 4.8,
-    image: "https://example.com/carpentry2.jpg",
+    image: "/img2/Car2.jpg",
     category: "carpentry"
   },
   {
@@ -488,7 +488,7 @@ const serviceData = [
     description: "Baseboard and crown molding",
     rate: "$65/hour",
     rating: 4.7,
-    image: "https://example.com/carpentry3.jpg",
+    image: "/img2/Car3.jpg",
     category: "carpentry"
   },
   {
@@ -497,7 +497,7 @@ const serviceData = [
     description: "New door frame construction",
     rate: "$85/hour",
     rating: 4.8,
-    image: "https://example.com/carpentry4.jpg",
+    image: "/img2/Car4.jpg",
     category: "carpentry"
   },
   {
@@ -506,7 +506,7 @@ const serviceData = [
     description: "Installation and repair",
     rate: "$90/hour",
     rating: 4.9,
-    image: "https://example.com/carpentry5.jpg",
+    image: "/img2/Car5.jpg",
     category: "carpentry"
   },
   {
@@ -515,7 +515,7 @@ const serviceData = [
     description: "Custom deck construction",
     rate: "$110/hour",
     rating: 4.9,
-    image: "https://example.com/carpentry6.jpg",
+    image: "/img2/Car6.jpg",
     category: "carpentry"
   },
   {
@@ -524,7 +524,7 @@ const serviceData = [
     description: "Restoring wooden furniture",
     rate: "$75/hour",
     rating: 4.8,
-    image: "https://example.com/carpentry7.jpg",
+    image: "/img2/Car7.jpg",
     category: "carpentry"
   },
   {
@@ -533,7 +533,7 @@ const serviceData = [
     description: "Custom stair construction",
     rate: "$95/hour",
     rating: 4.9,
-    image: "https://example.com/carpentry8.jpg",
+    image: "/img2/Car8.jpg",
     category: "carpentry"
   },
   {
@@ -542,7 +542,7 @@ const serviceData = [
     description: "Custom built-in furniture",
     rate: "$105/hour",
     rating: 4.9,
-    image: "https://example.com/carpentry9.jpg",
+    image: "/img2/Car9.jpg",
     category: "carpentry"
   },
   {
