@@ -61,7 +61,7 @@ const Home = () => {
       {/* --- HERO SECTION --- */}
       <section className="hero">
         <div className="hero-content">
-          <h4 style={{ margin: "1rem 7rem" }}>HANDYHUB</h4>
+          <h4 style={{ margin: "1rem 7rem",color:"#4ca5ee"}}>HANDYHUB</h4>
           <h1>Your trusted partner for home maintenance</h1>
           <p>
             From fixing leaks to full maintenance, our trusted professionals
