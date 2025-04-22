@@ -194,7 +194,7 @@ const serviceData = [
     description: "Interior wall painting services",
     rate: "$3.50/sq.ft.",
     rating: 4.8,
-    image: "https://example.com/decorating1.jpg",
+    image: "/img/Deco1.jpg",
     category: "decorating"
   },
   {
@@ -203,7 +203,7 @@ const serviceData = [
     description: "Custom accent wall creation",
     rate: "$150/wall",
     rating: 4.9,
-    image: "https://example.com/decorating2.jpg",
+    image: "/img/Deco2.jpg",
     category: "decorating"
   },
   {
@@ -212,7 +212,7 @@ const serviceData = [
     description: "Professional wallpaper hanging",
     rate: "$4.50/sq.ft.",
     rating: 4.7,
-    image: "https://example.com/decorating3.jpg",
+    image: "/img/Deco3.jpg",
     category: "decorating"
   },
   {
@@ -221,7 +221,7 @@ const serviceData = [
     description: "Installation of decorative molding",
     rate: "$8/linear foot",
     rating: 4.8,
-    image: "https://example.com/decorating4.jpg",
+    image: "/img/Deco4.jpg",
     category: "decorating"
   },
   {
@@ -230,7 +230,7 @@ const serviceData = [
     description: "Blinds and curtains installation",
     rate: "$50/window",
     rating: 4.7,
-    image: "https://example.com/decorating5.jpg",
+    image: "/img/Deco5.jpg",
     category: "decorating"
   },
   {
@@ -239,7 +239,7 @@ const serviceData = [
     description: "Professional decor consultation",
     rate: "$100/hour",
     rating: 4.9,
-    image: "https://example.com/decorating6.jpg",
+    image: "/img/Deco6.jpg",
     category: "decorating"
   },
   {
@@ -248,7 +248,7 @@ const serviceData = [
     description: "Special decorative paint effects",
     rate: "$6/sq.ft.",
     rating: 4.8,
-    image: "https://example.com/decorating7.jpg",
+    image: "/img/Deco7.jpg",
     category: "decorating"
   },
   {
@@ -257,7 +257,7 @@ const serviceData = [
     description: "Custom wall murals",
     rate: "$15/sq.ft.",
     rating: 4.9,
-    image: "https://example.com/decorating8.jpg",
+    image: "/img/Deco8.jpg",
     category: "decorating"
   },
   {
@@ -266,7 +266,7 @@ const serviceData = [
     description: "Expert color scheme advice",
     rate: "$75/session",
     rating: 4.7,
-    image: "https://example.com/decorating9.jpg",
+    image: "/img/Deco9.jpg",
     category: "decorating"
   },
   {
@@ -286,7 +286,7 @@ const serviceData = [
     description: "Finding and fixing water leaks",
     rate: "$85/hour",
     rating: 4.8,
-    image: "https://example.com/plumbing1.jpg",
+    image: "/img/Plum1.jpg",
     category: "plumbing"
   },
   {
@@ -295,7 +295,7 @@ const serviceData = [
     description: "Unclogging sinks and showers",
     rate: "$90/hour",
     rating: 4.7,
-    image: "https://example.com/plumbing2.jpg",
+    image: "/img/Plum2.jpg",
     category: "plumbing"
   },
   {
@@ -304,7 +304,7 @@ const serviceData = [
     description: "Fixing broken water pipes",
     rate: "$95/hour",
     rating: 4.9,
-    image: "https://example.com/plumbing3.jpg",
+    image: "/img/Plum3.jpg",
     category: "plumbing"
   },
   {
@@ -313,7 +313,7 @@ const serviceData = [
     description: "Installation and repair",
     rate: "$100/hour",
     rating: 4.8,
-    image: "https://example.com/plumbing4.jpg",
+    image: "/img/Plum4.jpg",
     category: "plumbing"
   },
   {
@@ -322,7 +322,7 @@ const serviceData = [
     description: "Fixing flush mechanisms",
     rate: "$85/hour",
     rating: 4.6,
-    image: "https://example.com/plumbing5.jpg",
+    image: "/img/Plum5.jpg",
     category: "plumbing"
   },
   {
@@ -331,7 +331,7 @@ const serviceData = [
     description: "New faucet setup",
     rate: "$80/hour",
     rating: 4.7,
-    image: "https://example.com/plumbing6.jpg",
+    image: "/img/Plum6.jpg",
     category: "plumbing"
   },
   {
@@ -340,7 +340,7 @@ const serviceData = [
     description: "Repairing main sewer lines",
     rate: "$120/hour",
     rating: 4.9,
-    image: "https://example.com/plumbing7.jpg",
+    image: "/img/Plum7.jpg",
     category: "plumbing"
   },
   {
@@ -349,7 +349,7 @@ const serviceData = [
     description: "Repair and replacement",
     rate: "$75/hour",
     rating: 4.5,
-    image: "https://example.com/plumbing8.jpg",
+    image: "/img/Plum8.jpg",
     category: "plumbing"
   },
   {
@@ -358,7 +358,7 @@ const serviceData = [
     description: "Installation and maintenance",
     rate: "$90/hour",
     rating: 4.7,
-    image: "https://example.com/plumbing9.jpg",
+    image: "/img/Plum9.jpg",
     category: "plumbing"
   },
   {
@@ -378,7 +378,7 @@ const serviceData = [
     description: "New home wiring",
     rate: "$95/hour",
     rating: 4.9,
-    image: "https://example.com/electrical1.jpg",
+    image: "/img2/Ele1.jpg",
     category: "electrical"
   },
   {
@@ -387,7 +387,7 @@ const serviceData = [
     description: "Installation and repair",
     rate: "$85/hour",
     rating: 4.8,
-    image: "https://example.com/electrical2.jpg",
+    image: "/img2/Ele2.jpg",
     category: "electrical"
   },
   {
@@ -396,7 +396,7 @@ const serviceData = [
     description: "New electrical outlets",
     rate: "$80/hour",
     rating: 4.7,
-    image: "https://example.com/electrical3.jpg",
+    image: "/img2/Ele3.jpg",
     category: "electrical"
   },
   {
@@ -405,7 +405,7 @@ const serviceData = [
     description: "Repair and replacement",
     rate: "$100/hour",
     rating: 4.8,
-    image: "https://example.com/electrical4.jpg",
+    image: "/img2/Ele4.jpg",
     category: "electrical"
   },
   {
@@ -414,7 +414,7 @@ const serviceData = [
     description: "Installation service",
     rate: "$90/hour",
     rating: 4.9,
-    image: "https://example.com/electrical5.jpg",
+    image: "/img2/Ele5.jpg",
     category: "electrical"
   },
   {
@@ -423,7 +423,7 @@ const serviceData = [
     description: "Backup power installation",
     rate: "$150/hour",
     rating: 4.9,
-    image: "https://example.com/electrical6.jpg",
+    image: "/img2/Ele6.jpg",
     category: "electrical"
   },
   {
@@ -432,7 +432,7 @@ const serviceData = [
     description: "Upgrade and repair",
     rate: "$120/hour",
     rating: 4.8,
-    image: "https://example.com/electrical7.jpg",
+    image: "/img2/Ele7.jpg",
     category: "electrical"
   },
   {
@@ -441,7 +441,7 @@ const serviceData = [
     description: "Device installation",
     rate: "$110/hour",
     rating: 4.7,
-    image: "https://example.com/electrical8.jpg",
+    image: "/img2/Ele8.jpg",
     category: "electrical"
   },
   {
@@ -450,7 +450,7 @@ const serviceData = [
     description: "Electric vehicle setup",
     rate: "$130/hour",
     rating: 4.9,
-    image: "https://example.com/electrical9.jpg",
+    image: "/img2/Ele9.jpg",
     category: "electrical"
   },
   {
