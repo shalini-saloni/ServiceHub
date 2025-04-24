@@ -119,7 +119,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* --- CONTACT SECTION --- */}
+      {/* --- CONTACT SECTION --- */} 
       <div id="contact" ref={contactRef}>
         <ContactSection />
       </div>

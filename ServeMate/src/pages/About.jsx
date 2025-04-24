@@ -147,39 +147,36 @@ const About = () => {
                 countless clients rely on for their home repair and improvement needs.
             </p>
 
+          <div className="story-feature">
+              <span className="story-icon"></span>
+          <div>
+            <strong>✨ OUR MISSION</strong>
+            <p>
+              Our mission is simple: to provide top-quality handyman services that make
+              your life easier and your home more beautiful.
+            </p>
+          </div>
+        </div>
+
         <div className="story-feature">
             <span className="story-icon"></span>
-        <div>
-          <strong>✨ OUR MISSION</strong>
-          <p>
-            Our mission is simple: to provide top-quality handyman services that make
-            your life easier and your home more beautiful.
-          </p>
+          <div>
+              <strong>✨ OUR VALUES</strong>
+                <p>
+                  Honesty and transparency guide everything we do, from how we
+                  communicate with our clients to the way we carry out our work.
+                </p>
+          </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
 
-      <div className="story-feature">
-        <span className="story-icon"></span>
-        <div>
-          <strong>✨ OUR VALUES</strong>
-          <p>
-            Honesty and transparency guide everything we do, from how we
-            communicate with our clients to the way we carry out our work.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
         <div id="about-contact">
             <Contact /> 
         </div>
           <Footer/>
-
-    </div>
-
-
-    
+    </div>   
   );
 };
 
