@@ -14,12 +14,12 @@ function App() {
 
   return (
     <Router>
-      <Navbar cartItems={cartItems} />
+      <Navbar cartItems={{ items: cartItems, setCartItems }} />
       <main className="main-content">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/services" element={<Services />} />
-          <Route path="/hire" element={<Hire setCartItems={setCartItems} />} />
+          <Route path="/hire" element={<Hire cartItems={cartItems} setCartItems={setCartItems} />} />
           <Route path="/login" element={<Login />} />
           <Route path="/about" element={<About />} />
         </Routes>

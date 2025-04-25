@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import './Hire.css';
 
-const Hire = ({ setCartItems }) => {
+const Hire = ({ cartItems, setCartItems }) => {
   const [services, setServices] = useState([]);
   const [filteredServices, setFilteredServices] = useState([]);
   const [activeCategory, setActiveCategory] = useState('all');
-  const [localCartItems, setLocalCartItems] = useState([]);
 
   useEffect(() => {
     setServices(serviceData);
@@ -22,11 +21,12 @@ const Hire = ({ setCartItems }) => {
   };
 
   const toggleCartItem = (service) => {
-    const updatedCart = localCartItems.some(item => item.id === service.id)
-      ? localCartItems.filter(item => item.id !== service.id)
-      : [...localCartItems, service];
-    
-    setLocalCartItems(updatedCart);
+    const isInCart = cartItems.some(item => item.id === service.id);
+
+    const updatedCart = isInCart
+      ? cartItems.filter(item => item.id !== service.id)
+      : [...cartItems, { ...service, quantity: 1 }];
+
     setCartItems(updatedCart);
   };
 
@@ -52,7 +52,7 @@ const Hire = ({ setCartItems }) => {
         
         <div className="service-grid">
           {filteredServices.map(service => {
-            const isInCart = localCartItems.some(item => item.id === service.id);
+            const isInCart = cartItems.some(item => item.id === service.id);
             return (
               <div key={service.id} className="service-card">
                 <div className="service-image-container">
