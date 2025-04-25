@@ -177,16 +177,7 @@ const serviceData = [
     image: "/img/Home9.jpg",
     category: "repairs"
   },
-  {
-    id: 'repairs-10',
-    name: "General Handyman",
-    description: "Various small home repairs",
-    rate: "$60/hour",
-    rating: 4.7,
-    image: "https://example.com/repairs10.jpg",
-    category: "repairs"
-  },
-
+  
   // Decorating (10 services)
   {
     id: 'decorating-1',
@@ -269,16 +260,7 @@ const serviceData = [
     image: "/img/Deco9.jpg",
     category: "decorating"
   },
-  {
-    id: 'decorating-10',
-    name: "Holiday Decorating",
-    description: "Seasonal home decoration",
-    rate: "$200+",
-    rating: 4.8,
-    image: "https://example.com/decorating10.jpg",
-    category: "decorating"
-  },
-
+  
   // Plumbing (10 services)
   {
     id: 'plumbing-1',
@@ -359,15 +341,6 @@ const serviceData = [
     rate: "$90/hour",
     rating: 4.7,
     image: "/img/Plum9.jpg",
-    category: "plumbing"
-  },
-  {
-    id: 'plumbing-10',
-    name: "Emergency Plumbing",
-    description: "24/7 urgent service",
-    rate: "$150/hour",
-    rating: 4.8,
-    image: "https://example.com/plumbing10.jpg",
     category: "plumbing"
   },
 
@@ -453,16 +426,7 @@ const serviceData = [
     image: "/img2/Ele9.jpg",
     category: "electrical"
   },
-  {
-    id: 'electrical-10',
-    name: "Emergency Electrical",
-    description: "24/7 urgent service",
-    rate: "$200/hour",
-    rating: 4.8,
-    image: "https://example.com/electrical10.jpg",
-    category: "electrical"
-  },
-
+  
   // Carpentry (10 services)
   {
     id: 'carpentry-1',
@@ -545,16 +509,7 @@ const serviceData = [
     image: "/img2/Car9.jpg",
     category: "carpentry"
   },
-  {
-    id: 'carpentry-10',
-    name: "Wood Turning",
-    description: "Custom wood lathe work",
-    rate: "$85/hour",
-    rating: 4.8,
-    image: "https://example.com/carpentry10.jpg",
-    category: "carpentry"
-  },
-
+  
   // Furniture Assembly (10 services)
   {
     id: 'furniture-1',
@@ -635,15 +590,6 @@ const serviceData = [
     rate: "$80-250",
     rating: 4.7,
     image: "/img2/Ass9.jpg",
-    category: "furniture"
-  },
-  {
-    id: 'furniture-10',
-    name: "Flat Pack Furniture",
-    description: "IKEA and similar assembly",
-    rate: "$40-120",
-    rating: 4.8,
-    image: "https://example.com/furniture10.jpg",
     category: "furniture"
   }
 ];
