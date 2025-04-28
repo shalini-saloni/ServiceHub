@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
 import "./Footer.css";
 
 const Footer = () => {
@@ -17,28 +18,28 @@ const Footer = () => {
           <div>
             <h4>Extra links</h4>
             <ul>
-              <li>About us</li>
-              <li>Services</li>
-              <li>Contact</li>
-              <li>Hire</li>
+              <li><Link to="/about">About Us</Link></li>
+              <li><Link to="/services">Services</Link></li>
+              <li><Link to="/#contact">Contact</Link></li>
+              <li><Link to="/hire">Hire</Link></li>
             </ul>
           </div>
 
           <div>
             <h4>Social media</h4>
             <ul>
-              <li>Instagram</li>
-              <li>YouTube</li>
-              <li>Facebook</li>
-              <li>X</li>
+              <li><a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+              <li><a href="https://youtube.com" target="_blank" rel="noopener noreferrer">YouTube</a></li>
+              <li><a href="https://facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+              <li><a href="https://twitter.com" target="_blank" rel="noopener noreferrer">X</a></li>
             </ul>
           </div>
 
           <div>
             <h4>HandyHub</h4>
             <ul>
-              <li>Licensing</li>
-              <li>Style Guide</li>
+              <li><Link to="/licensing">Licensing</Link></li>
+              <li><Link to="/style-guide">Style Guide</Link></li>
             </ul>
           </div>
         </div>
@@ -50,7 +51,6 @@ const Footer = () => {
       </div>
 
       <div className="footer-shape"></div>
-      
     </footer>
   );
 };

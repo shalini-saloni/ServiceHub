@@ -11,7 +11,6 @@ const Navbar = ({ cartItems }) => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [navbarItems, setNavbarItems] = useState(cartItems || []);
 
-  // Keep navbarItems in sync with cartItems
   useEffect(() => {
     setNavbarItems(cartItems || []);
   }, [cartItems]);

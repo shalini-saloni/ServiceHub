@@ -201,6 +201,7 @@
 .service-details-btn:hover {
   background-color: #3498db;
   color: white;
+  border-color: #3498db;
 }
 
 .carousel-btn {

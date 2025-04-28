@@ -82,15 +82,31 @@
     font-weight: bold;
     border-radius: 8px;
     border: 2px solid #4f9fff;
-    background-color: #e9ecf0;
     color: #4f9fff;
+    position: relative;
+    overflow: hidden;
+    transition: color 0.4s;
+    z-index: 1;
+  }
+  
+  .btnn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: #4f9fff;
+    z-index: -1;
     transition: all 0.4s ease;
-    cursor: pointer;
   }
   
   .btnn:hover {
-    background-color: #4f9fff;
     color: #fff;
+  }
+  
+  .btnn:hover::before {
+    left: 0;
   }
 
   .why-choose-us {

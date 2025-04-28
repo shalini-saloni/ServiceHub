@@ -34,6 +34,7 @@
     display: flex;
     gap: 4rem;
     flex: 2 1 500px;
+
   }
   
   .footer-links h4 {
@@ -50,10 +51,6 @@
     margin-bottom: 0.5rem;
     color: #cbd5e1;
     cursor: pointer;
-  }
-  
-  .footer-links li:hover {
-    text-decoration: underline;
   }
   
   .footer-bottom {
@@ -73,6 +70,13 @@
     border-top-left-radius: 300px;
   }
 
-  
-  
+.footer a {
+  color:#3a6896; 
+  text-decoration: none; 
+}
+
+.footer a:hover {
+  color: #bbb290; 
+}
+
   
