@@ -1,15 +1,20 @@
-import React, { useEffect, useState } from 'react';
-import { ShoppingCart, User, Search, MapPin } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState, useRef } from 'react';
+import { ShoppingCart, User, Search, MapPin, LogOut } from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../contexts/AuthContext';
 import './Navbar.css';
 import logo from '../images/logo.png';
 import Cart from './Cart';
 
 const Navbar = ({ cartItems }) => {
+  const { currentUser, logout } = useAuth();
+  const navigate = useNavigate();
   const serviceSuggestions = ['maid', 'carpenter', 'plumber', 'electrician', 'gardener'];
   const [placeholder, setPlaceholder] = useState('Search for "maid"');
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [navbarItems, setNavbarItems] = useState(cartItems || []);
+  const [showUserMenu, setShowUserMenu] = useState(false);
+  const userMenuRef = useRef(null);
 
   useEffect(() => {
     setNavbarItems(cartItems || []);
@@ -24,8 +29,36 @@ const Navbar = ({ cartItems }) => {
     return () => clearInterval(interval);
   }, []);
 
+  // Handle clicks outside user menu
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (userMenuRef.current && !userMenuRef.current.contains(event.target)) {
+        setShowUserMenu(false);
+      }
+    }
+    
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [userMenuRef]);
+
   const toggleCart = () => {
     setIsCartOpen(!isCartOpen);
+  };
+
+  const toggleUserMenu = () => {
+    setShowUserMenu(!showUserMenu);
+  };
+
+  const handleLogout = async () => {
+    try {
+      await logout();
+      setShowUserMenu(false);
+      navigate('/login');
+    } catch (error) {
+      console.error('Failed to log out', error);
+    }
   };
 
   return (
@@ -44,6 +77,7 @@ const Navbar = ({ cartItems }) => {
             <Link to="/#contact">Contact Us</Link>
           </div>
         </div>
+        
         {/* Right: Inputs + Icons */}
         <div className="navbar-right">
           <div className="input-location-wrapper">
@@ -69,27 +103,57 @@ const Navbar = ({ cartItems }) => {
                 <span className="cart-badge">{navbarItems.length}</span>
               )}
             </button>
-            <Link to="/login">
-              <button className="icon-button">
-                <User size={22} />
-              </button>
-            </Link>
+            
+            {currentUser ? (
+              <div className="user-menu-container" ref={userMenuRef}>
+                <button className="icon-button user-button" onClick={toggleUserMenu}>
+                  <div className="user-avatar">
+                    {currentUser.name.charAt(0).toUpperCase()}
+                  </div>
+                </button>
+                
+                {showUserMenu && (
+                  <div className="user-dropdown">
+                    <div className="user-dropdown-header">
+                      <span className="user-name">{currentUser.name}</span>
+                      <span className="user-email">{currentUser.email}</span>
+                    </div>
+                    <div className="user-dropdown-actions">
+                      <Link to="/profile" onClick={() => setShowUserMenu(false)}>
+                        <User size={16} />
+                        <span>My Profile</span>
+                      </Link>
+                      <button onClick={handleLogout}>
+                        <LogOut size={16} />
+                        <span>Logout</span>
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <Link to="/login">
+                <button className="icon-button">
+                  <User size={22} />
+                </button>
+              </Link>
+            )}
           </div>
         </div>
       </nav>
       
       {/* Cart Component */}
-      <Cart 
-        cartItems={navbarItems} 
+      <Cart
+        cartItems={navbarItems}
         setCartItems={(newItems) => {
-          // This assumes App.jsx passes setCartItems function in the cartItems prop
+          
           if (cartItems && typeof cartItems.setCartItems === 'function') {
             cartItems.setCartItems(newItems);
           }
           setNavbarItems(newItems);
         }}
-        isOpen={isCartOpen} 
-        onClose={() => setIsCartOpen(false)} 
+        isOpen={isCartOpen}
+        onClose={() => setIsCartOpen(false)}
       />
     </>
   );
