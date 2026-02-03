@@ -64,7 +64,7 @@ const ContactSection = () => {
         setStatus({ type: 'error', msg: data.message || 'Something went wrong.' });
       }
     } catch (error) {
-      setStatus({ type: 'error', msg: 'Could not connect to the server.' });
+      setStatus({ type: 'error', msg: error });
     }
   };
 
