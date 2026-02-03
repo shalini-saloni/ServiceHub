@@ -81,5 +81,24 @@ app.post('/api/contact', async (req, res) => {
   }
 });
 
+app.get('/api/cart/:userId', async (req, res) => {
+  try {
+    const user = await User.findById(req.params.userId);
+    res.json(user.cart);
+  } catch (err) {
+    res.status(500).json({ message: "Error fetching cart" });
+  }
+});
+
+app.post('/api/cart/sync', async (req, res) => {
+  const { userId, cartItems } = req.body;
+  try {
+    await User.findByIdAndUpdate(userId, { cart: cartItems });
+    res.status(200).json({ message: "Cart synced" });
+  } catch (err) {
+    res.status(500).json({ message: "Error syncing cart" });
+  }
+});
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
