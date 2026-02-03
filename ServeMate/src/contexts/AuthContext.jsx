@@ -1,116 +1,65 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
 const AuthContext = createContext();
+const API_BASE = "http://localhost:5000/api/auth";
 
-export function useAuth() {
-  return useContext(AuthContext);
-}
+export function useAuth() { return useContext(AuthContext); }
 
 export function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // Load user from localStorage on mount 
   useEffect(() => {
-    const storedUser = localStorage.getItem('currentUser');
-    if (storedUser) {
-      setCurrentUser(JSON.parse(storedUser));
-    }
+    const stored = localStorage.getItem('currentUser');
+    if (stored) setCurrentUser(JSON.parse(stored));
     setLoading(false);
   }, []);
 
-  // Function to register a new user
-  function signup(userData) {
-    
-    const users = JSON.parse(localStorage.getItem('users') || '[]');
-    
-    // Check if email already exists 
-    if (users.some(user => user.email === userData.email)) {
-      throw new Error('Email already in use');
-    }
-    
-    // Create new user with ID and encrypted password (simplified)
-    const newUser = {
-      id: Date.now().toString(),
-      name: userData.name,
-      email: userData.email,
-      phone: userData.phone,
-      address: userData.address,
-      password: userData.password
-    };
-    
-    // Add user to the list and save
-    users.push(newUser);
-    localStorage.setItem('users', JSON.stringify(users));
-    
-    // Set as current user
-    setCurrentUser(newUser);
-    localStorage.setItem('currentUser', JSON.stringify(newUser));
-    
-    return newUser;
+  async function signup(userData) {
+    const res = await fetch(`${API_BASE}/signup`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(userData)
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.message);
+    setCurrentUser(data.user);
+    localStorage.setItem('currentUser', JSON.stringify(data.user));
+    localStorage.setItem('token', data.token);
   }
 
-  // Function to log in
-  function login(email, password) {
-    // Get users from localStorage
-    const users = JSON.parse(localStorage.getItem('users') || '[]');
-    
-    // Find user by email and password
-    const user = users.find(
-      user => user.email === email && user.password === password
-    );
-    
-    if (!user) {
-      throw new Error('Invalid email or password');
-    }
-    
-    // Set as current user
-    setCurrentUser(user);
-    localStorage.setItem('currentUser', JSON.stringify(user));
-    
-    return user;
+  async function login(email, password) {
+    const res = await fetch(`${API_BASE}/login`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password })
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.message);
+    setCurrentUser(data.user);
+    localStorage.setItem('currentUser', JSON.stringify(data.user));
+    localStorage.setItem('token', data.token);
   }
 
-  // Function to log out
+  async function updateProfile(userData) {
+    const res = await fetch(`${API_BASE}/update`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ ...userData, id: currentUser.id })
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error("Update failed");
+    setCurrentUser(data);
+    localStorage.setItem('currentUser', JSON.stringify(data));
+  }
+
   function logout() {
     setCurrentUser(null);
-    localStorage.removeItem('currentUser');
+    localStorage.clear();
   }
-
-  // Function to update user profile
-  function updateProfile(userData) {
-    // Get users from localStorage
-    const users = JSON.parse(localStorage.getItem('users') || '[]');
-    
-    // Find and update the user
-    const updatedUsers = users.map(user => {
-      if (user.id === currentUser.id) {
-        return { ...user, ...userData };
-      }
-      return user;
-    });
-    
-    // Update in localStorage
-    localStorage.setItem('users', JSON.stringify(updatedUsers));
-    
-    // Update current user
-    const updatedUser = { ...currentUser, ...userData };
-    setCurrentUser(updatedUser);
-    localStorage.setItem('currentUser', JSON.stringify(updatedUser));
-    
-    return updatedUser;
-  }
-
-  const value = {
-    currentUser,
-    signup,
-    login,
-    logout,
-    updateProfile
-  };
 
   return (
-    <AuthContext.Provider value={value}>
+    <AuthContext.Provider value={{ currentUser, signup, login, logout, updateProfile }}>
       {!loading && children}
     </AuthContext.Provider>
   );
