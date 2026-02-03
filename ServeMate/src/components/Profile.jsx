@@ -56,8 +56,11 @@ const Profile = () => {
       await updateProfile(userData);
       setSuccess('Profile updated successfully!');
       setIsEditing(false);
+      setTimeout(() => {
+        setSuccess('');
+      }, 3000);
     } catch (err) {
-      setError('Failed to update profile');
+      setError(err);
     } finally {
       setLoading(false);
     }

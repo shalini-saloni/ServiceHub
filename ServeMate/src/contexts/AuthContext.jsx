@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
 const AuthContext = createContext();
-const API_BASE = "http://localhost:5000/api/auth";
+const API_BASE = "http://localhost:5001/api/auth";
 
 export function useAuth() { return useContext(AuthContext); }
 

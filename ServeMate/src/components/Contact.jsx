@@ -43,28 +43,31 @@ const ContactSection = () => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault(); 
     setStatus({ type: 'loading', msg: 'Sending...' });
 
     try {
-      const response = await fetch('http://localhost:5000/api/contact', {
+      const response = await fetch('http://localhost:5001/api/contact', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       });
 
-      const data = await response.json();
-
       if (response.ok) {
         setStatus({ type: 'success', msg: 'Thank you! We will contact you shortly.' });
-        setFormData({ name: '', phone: '', service: '', message: '' });
+
+        setFormData({ name: '', phone: '', service: '', message: '' }); 
+
+        setTimeout(() => {
+          setStatus({ type: '', msg: '' });
+        }, 3000);
       } else {
-        setStatus({ type: 'error', msg: data.message || 'Something went wrong.' });
+        const errorData = await response.json();
+        setStatus({ type: 'error', msg: errorData.message || 'Something went wrong.' });
       }
     } catch (error) {
-      setStatus({ type: 'error', msg: error });
+      setStatus({ type: 'error', msg: 'Could not connect to the server. Is the backend running?' });
+      console.error("Submission error:", error);
     }
   };
 
