@@ -70,6 +70,7 @@ function AppContent() {
           <Route path="/services" element={<Services />} />
           <Route path="/hire" element={<Hire cartItems={cartItems} setCartItems={setCartItems} />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Login />} />
           <Route path="/about" element={<About />} />
           <Route 
             path="/profile" 

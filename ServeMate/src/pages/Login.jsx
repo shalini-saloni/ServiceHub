@@ -9,12 +9,10 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const { signup, login } = useAuth();
-  
-  // Login form state
+
   const [loginEmail, setLoginEmail] = useState('');
   const [loginPassword, setLoginPassword] = useState('');
   
-  // Signup form state
   const [signupData, setSignupData] = useState({
     name: '',
     email: '',

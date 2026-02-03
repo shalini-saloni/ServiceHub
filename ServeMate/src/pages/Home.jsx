@@ -50,27 +50,32 @@ const Home = () => {
     }
   }, [location]);
 
-  const scrollToContact = () => {
-    if (contactRef.current) {
-      contactRef.current.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <>
       {/* --- HERO SECTION --- */}
       <section className="hero">
         <div className="hero-content">
-          <h4 style={{ margin: "1rem 7rem",color:"#4ca5ee"}}>HANDYHUB</h4>
+          <h4 style={{ margin: "1rem 7rem", color: "#4ca5ee" }}>HANDYHUB</h4>
           <h1>Your trusted partner for home maintenance</h1>
           <p>
             From fixing leaks to full maintenance, our trusted professionals
             ensure your home is always in top shape.
           </p>
-          {/* Update Button to Trigger Scroll */}
-          <button onClick={scrollToContact} className="view-all-btn" style={{ margin: "1rem 7rem" }}>
-            Contact Us
-          </button>
+          
+          {/* Changed Button to Sign Up Link */}
+          <RouterLink 
+            to="/login" 
+            state={{ switchToSignup: true }}
+            className="view-all-btn"
+            style={{ 
+              margin: "1rem 7rem", 
+              display: "inline-block", 
+              textDecoration: "none",
+              textAlign: "center"
+            }}
+          >
+            Sign Up Now
+          </RouterLink>
 
           <div className="stats" style={{ margin: "1rem 7rem" }}>
             <div>
@@ -89,7 +94,7 @@ const Home = () => {
         </div>
 
         <div className="hero-img">
-          <img src={workerImg} alt="A professional worker cooking" />
+          <img src={workerImg} alt="A professional worker" />
         </div>
       </section>
 
@@ -99,7 +104,7 @@ const Home = () => {
           <h4 className="section-subtitle">HANDYHUB</h4>
           <h2 className="section-title">Quality handyman solutions</h2>
           <p className="section-desc">
-            At Handyhub, we offer a comprehensive range of handyman services to keep your home in top condition. Whether it’s a minor repair or a major project, our skilled team is here to help.
+            At Handyhub, we offer a comprehensive range of handyman services to keep your home in top condition.
           </p>
 
           <div className="services-grid">
