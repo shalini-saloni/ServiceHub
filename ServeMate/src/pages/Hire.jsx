@@ -1,23 +1,47 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom'; 
 import './Hire.css';
 
 const Hire = ({ cartItems, setCartItems }) => {
-  const [services, setServices] = useState([]);
-  const [filteredServices, setFilteredServices] = useState([]);
+  const location = useLocation(); 
+  const [services, setServices] = useState(serviceData);
+  const [filteredServices, setFilteredServices] = useState(serviceData);
   const [activeCategory, setActiveCategory] = useState('all');
 
-  useEffect(() => {
-    setServices(serviceData);
-    setFilteredServices(serviceData);
-  }, []);
+useEffect(() => {
+    const searchParams = location.state || {};
+    const { query, location: locQuery } = searchParams;
+
+    let results = serviceData;
+
+    if (activeCategory !== 'all') {
+      results = results.filter(service => service.category === activeCategory);
+    }
+
+    if (query) {
+      const lowQuery = query.toLowerCase();
+      results = results.filter(service => {
+        return (
+          service.name.toLowerCase().includes(lowQuery) ||
+          service.description.toLowerCase().includes(lowQuery) ||
+          service.category.toLowerCase().includes(lowQuery) ||
+          lowQuery.includes(service.category.toLowerCase())
+        );
+      });
+    }
+
+    if (locQuery) {
+      const lowLoc = locQuery.toLowerCase();
+      results = results.filter(service => 
+        service.location && service.location.toLowerCase().includes(lowLoc)
+      );
+    }
+
+    setFilteredServices(results);
+  }, [location.state, activeCategory]);
 
   const filterServices = (category) => {
     setActiveCategory(category);
-    setFilteredServices(
-      category === 'all' 
-        ? services 
-        : services.filter(service => service.category === category)
-    );
   };
 
   const toggleCartItem = (service) => {
@@ -34,10 +58,14 @@ const Hire = ({ cartItems, setCartItems }) => {
     <div className="hire-services-page">
       <div className="container">
         <h1>Professional Home Services</h1>
-        <p className="services-intro">
-          Book trusted professionals for your home service needs. All services come with a satisfaction guarantee.
-        </p>
         
+        {location.state?.query && (
+          <p className="search-results-text">
+            Showing results for "{location.state.query}" 
+            {location.state.location ? ` in ${location.state.location}` : ''}
+          </p>
+        )}
+
         <div className="filters">
           {categories.map(category => (
             <button
@@ -51,33 +79,42 @@ const Hire = ({ cartItems, setCartItems }) => {
         </div>
         
         <div className="service-grid">
-          {filteredServices.map(service => {
-            const isInCart = cartItems.some(item => item.id === service.id);
-            return (
-              <div key={service.id} className="service-card">
-                <div className="service-image-container">
-                  <img src={service.image} alt={service.name} className="service-image" />
-                </div>
-                <div className="service-content">
-                  <h3>{service.name}</h3>
-                  <p className="service-description">{service.description}</p>
-                  <div className="service-details">
-                    <p className="service-rate">{service.rate}</p>
-                    <div className="service-rating">
-                      <span className="stars">{'★'.repeat(Math.floor(service.rating))}</span>
-                      <span>({service.rating})</span>
-                    </div>
+          {filteredServices.length > 0 ? (
+            filteredServices.map(service => {
+              const isInCart = cartItems.some(item => item.id === service.id);
+              return (
+                <div key={service.id} className="service-card">
+                  <div className="service-image-container">
+                    <img src={service.image} alt={service.name} className="service-image" />
                   </div>
-                  <button
-                    className={`cart-btn ${isInCart ? 'remove' : 'add'}`}
-                    onClick={() => toggleCartItem(service)}
-                  >
-                    {isInCart ? '− Remove from Cart' : '+ Add to Cart'}
-                  </button>
+                  <div className="service-content">
+                    <h3>{service.name}</h3>
+                    <p className="service-description">{service.description}</p>
+                    <div className="service-details">
+                      <p className="service-rate">{service.rate}</p>
+                      <div className="service-rating">
+                        <span className="stars">{'★'.repeat(Math.floor(service.rating))}</span>
+                        <span>({service.rating})</span>
+                      </div>
+                    </div>
+                    <button
+                      className={`cart-btn ${isInCart ? 'remove' : 'add'}`}
+                      onClick={() => toggleCartItem(service)}
+                    >
+                      {isInCart ? '− Remove from Cart' : '+ Add to Cart'}
+                    </button>
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })
+          ) : (
+            <div className="no-results">
+              <h3>No services found matching your criteria.</h3>
+              <button onClick={() => {setActiveCategory('all'); setFilteredServices(serviceData);}}>
+                Clear all filters
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </div>

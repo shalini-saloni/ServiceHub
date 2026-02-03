@@ -9,11 +9,16 @@ import Cart from './Cart';
 const Navbar = ({ cartItems }) => {
   const { currentUser, logout } = useAuth();
   const navigate = useNavigate();
-  const serviceSuggestions = ['maid', 'carpenter', 'plumber', 'electrician', 'gardener'];
+  const serviceSuggestions = ['home repairs', 'decorating', 'plumbing', 'electrical', 'carpentry', 'furniture assembly'];
   const [placeholder, setPlaceholder] = useState('Search for "maid"');
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [navbarItems, setNavbarItems] = useState(cartItems || []);
   const [showUserMenu, setShowUserMenu] = useState(false);
+  
+  // New State for Search and Location
+  const [searchQuery, setSearchQuery] = useState('');
+  const [locationQuery, setLocationQuery] = useState('');
+  
   const userMenuRef = useRef(null);
 
   useEffect(() => {
@@ -29,26 +34,16 @@ const Navbar = ({ cartItems }) => {
     return () => clearInterval(interval);
   }, []);
 
-  // Handle clicks outside user menu
-  useEffect(() => {
-    function handleClickOutside(event) {
-      if (userMenuRef.current && !userMenuRef.current.contains(event.target)) {
-        setShowUserMenu(false);
-      }
+  const handleSearch = (e) => {
+    // Trigger on Enter key or when manually called (like icon click)
+    if (e.key === 'Enter' || e.type === 'click') {
+      navigate('/hire', { 
+        state: { 
+          query: searchQuery, 
+          location: locationQuery 
+        } 
+      });
     }
-    
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [userMenuRef]);
-
-  const toggleCart = () => {
-    setIsCartOpen(!isCartOpen);
-  };
-
-  const toggleUserMenu = () => {
-    setShowUserMenu(!showUserMenu);
   };
 
   const handleLogout = async () => {
@@ -64,7 +59,6 @@ const Navbar = ({ cartItems }) => {
   return (
     <>
       <nav className="navbar">
-        {/* Left: Logo + Links */}
         <div className="navbar-left">
           <Link to="/" className="logo">
             <img src={logo} alt="Logo" />
@@ -78,13 +72,15 @@ const Navbar = ({ cartItems }) => {
           </div>
         </div>
         
-        {/* Right: Inputs + Icons */}
         <div className="navbar-right">
           <div className="input-location-wrapper">
             <input
               type="text"
               placeholder="Enter Location"
               className="input-location"
+              value={locationQuery}
+              onChange={(e) => setLocationQuery(e.target.value)}
+              onKeyDown={handleSearch}
             />
             <MapPin className="location-icon" size={18} />
           </div>
@@ -93,63 +89,52 @@ const Navbar = ({ cartItems }) => {
               type="text"
               placeholder={placeholder}
               className="input-service"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              onKeyDown={handleSearch}
             />
-            <Search className="search-icon" size={18} />
+            <Search 
+              className="search-icon" 
+              size={18} 
+              onClick={handleSearch} 
+              style={{ cursor: 'pointer' }}
+            />
           </div>
           <div className="icon-buttons">
-            <button className="icon-button" onClick={toggleCart}>
+            <button className="icon-button" onClick={() => setIsCartOpen(!isCartOpen)}>
               <ShoppingCart size={22} />
-              {navbarItems.length > 0 && (
-                <span className="cart-badge">{navbarItems.length}</span>
-              )}
+              {navbarItems.length > 0 && <span className="cart-badge">{navbarItems.length}</span>}
             </button>
             
             {currentUser ? (
               <div className="user-menu-container" ref={userMenuRef}>
-                <button className="icon-button user-button" onClick={toggleUserMenu}>
-                  <div className="user-avatar">
-                    {currentUser.name.charAt(0).toUpperCase()}
-                  </div>
+                <button className="icon-button user-button" onClick={() => setShowUserMenu(!showUserMenu)}>
+                  <div className="user-avatar">{currentUser.name.charAt(0).toUpperCase()}</div>
                 </button>
-                
                 {showUserMenu && (
                   <div className="user-dropdown">
                     <div className="user-dropdown-header">
                       <span className="user-name">{currentUser.name}</span>
-                      <span className="user-email">{currentUser.email}</span>
                     </div>
                     <div className="user-dropdown-actions">
                       <Link to="/profile" onClick={() => setShowUserMenu(false)}>
-                        <User size={16} />
-                        <span>My Profile</span>
+                        <User size={16} /> <span>My Profile</span>
                       </Link>
-                      <button onClick={handleLogout}>
-                        <LogOut size={16} />
-                        <span>Logout</span>
-                      </button>
+                      <button onClick={handleLogout}><LogOut size={16} /> <span>Logout</span></button>
                     </div>
                   </div>
                 )}
               </div>
             ) : (
-              <Link to="/login">
-                <button className="icon-button">
-                  <User size={22} />
-                </button>
-              </Link>
+              <Link to="/login"><button className="icon-button"><User size={22} /></button></Link>
             )}
           </div>
         </div>
       </nav>
-      
-      {/* Cart Component */}
       <Cart
         cartItems={navbarItems}
         setCartItems={(newItems) => {
-          
-          if (cartItems && typeof cartItems.setCartItems === 'function') {
-            cartItems.setCartItems(newItems);
-          }
+          if (cartItems?.setCartItems) cartItems.setCartItems(newItems);
           setNavbarItems(newItems);
         }}
         isOpen={isCartOpen}
