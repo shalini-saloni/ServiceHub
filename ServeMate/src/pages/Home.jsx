@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Link as RouterLink } from 'react-router-dom';
+import { useAuth } from '../contexts/AuthContext';
 import './Home.css';
 import workerImg from '../images/Front.jpg';
 import { Hammer, Paintbrush, Wrench, Zap, Ruler, Package } from 'lucide-react';
@@ -43,12 +44,19 @@ const services = [
 const Home = () => {
   const contactRef = useRef(null);
   const location = useLocation();
+  const { currentUser } = useAuth();
 
   useEffect(() => {
     if (location.hash === '#contact' && contactRef.current) {
       contactRef.current.scrollIntoView({ behavior: 'smooth' });
     }
   }, [location]);
+
+  const scrollToContact = () => {
+    if (contactRef.current) {
+      contactRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <>
@@ -62,20 +70,28 @@ const Home = () => {
             ensure your home is always in top shape.
           </p>
           
-          {/* Changed Button to Sign Up Link */}
-          <RouterLink 
-            to="/login" 
-            state={{ switchToSignup: true }}
-            className="view-all-btn"
-            style={{ 
-              margin: "1rem 7rem", 
-              display: "inline-block", 
-              textDecoration: "none",
-              textAlign: "center"
-            }}
-          >
-            Sign Up Now
-          </RouterLink>
+          {currentUser ? (
+            <button 
+              onClick={scrollToContact} 
+              className="view-all-btn" 
+              style={{ margin: "1rem 7rem" }}
+            >
+              Contact Us
+            </button>
+          ) : (
+            <RouterLink 
+              to="/signup" 
+              className="view-all-btn" 
+              style={{ 
+                margin: "1rem 7rem", 
+                display: "inline-block", 
+                textDecoration: "none",
+                textAlign: "center"
+              }}
+            >
+              Sign Up Now
+            </RouterLink>
+          )}
 
           <div className="stats" style={{ margin: "1rem 7rem" }}>
             <div>
