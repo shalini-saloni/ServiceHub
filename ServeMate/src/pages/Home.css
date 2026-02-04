@@ -113,7 +113,7 @@
   
   /* Image drop-in animation */
   .hero-img img {
-    max-width: 100%;
+    max-width: 87%;
     border-radius: 1rem;
     animation: dropIn 1s ease-out forwards;
     opacity: 0;
