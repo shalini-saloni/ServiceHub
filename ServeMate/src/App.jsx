@@ -29,7 +29,7 @@ function AppContent() {
     const fetchCart = async () => {
       if (currentUser?.id) {
         try {
-          const res = await fetch(`http://localhost:5001/api/cart/${currentUser.id}`);
+          const res = await fetch(`https://servicehub-wfy0.onrender.com/api/cart/${currentUser.id}`);
           const data = await res.json();
           setCartItems(data || []);
         } catch (err) {
@@ -46,7 +46,7 @@ function AppContent() {
     const syncCart = async () => {
       if (currentUser?.id) {
         try {
-          await fetch('http://localhost:5001/api/cart/sync', {
+          await fetch('https://servicehub-wfy0.onrender.com/api/cart/sync', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ userId: currentUser.id, cartItems })

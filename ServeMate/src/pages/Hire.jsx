@@ -32,9 +32,9 @@ useEffect(() => {
 
     if (locQuery) {
       const lowLoc = locQuery.toLowerCase();
-      results = results.filter(service => 
-        service.location && service.location.toLowerCase().includes(lowLoc)
-      );
+      results = results.filter(service => {
+        return service.location.toLowerCase().includes(lowLoc);
+      });
     }
 
     setFilteredServices(results);
