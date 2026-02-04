@@ -21,11 +21,14 @@ useEffect(() => {
     if (query) {
       const lowQuery = query.toLowerCase();
       results = results.filter(service => {
+        const name = service.name?.toLowerCase() || "";
+        const desc = service.description?.toLowerCase() || "";
+        const cat = service.category?.toLowerCase() || "";
+
         return (
-          service.name.toLowerCase().includes(lowQuery) ||
-          service.description.toLowerCase().includes(lowQuery) ||
-          service.category.toLowerCase().includes(lowQuery) ||
-          lowQuery.includes(service.category.toLowerCase())
+          name.includes(lowQuery) ||
+          desc.includes(lowQuery) ||
+          cat.includes(lowQuery)
         );
       });
     }
@@ -33,6 +36,7 @@ useEffect(() => {
     if (locQuery) {
       const lowLoc = locQuery.toLowerCase();
       results = results.filter(service => {
+        if (!service.location) return true; 
         return service.location.toLowerCase().includes(lowLoc);
       });
     }
