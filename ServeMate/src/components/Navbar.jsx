@@ -24,32 +24,42 @@ const Navbar = ({ cartItems }) => {
 
   useEffect(() => {
     const getAutoLocation = () => {
-      if ("geolocation" in navigator) {
-        setIsLocating(true);
-        navigator.geolocation.getCurrentPosition(
-          async (position) => {
-            const { latitude, longitude } = position.coords;
-            try {
-              const response = await fetch(
-                `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`
-              );
-              const data = await response.json();
-              const city = data.address.city || data.address.town || data.address.village || data.address.state;
-              if (city) setLocationQuery(city);
-            } catch (error) {
-              console.error("Geocoding failed:", error);
-            } finally {
-              setIsLocating(false);
+    if ("geolocation" in navigator) {
+      setIsLocating(true);
+      navigator.geolocation.getCurrentPosition(
+        async (position) => {
+          const { latitude, longitude } = position.coords;
+          try {
+            const response = await fetch(
+              `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`
+            );
+            const data = await response.json();
+            const addr = data.address;
+
+            const city = addr.city || 
+                        addr.town || 
+                        addr.village || 
+                        addr.city_district || 
+                        addr.county || 
+                        addr.state_district; 
+
+            const state = addr.state;
+
+            if (city && state) {
+              setLocationQuery(`${city}, ${state}`);
+            } else {
+              setLocationQuery(city || state || "Location Not Found");
             }
-          },
-          (error) => {
-            console.warn("Location blocked by user:", error.message);
+            
+          } catch (error) {
+            console.error("Geocoding failed:", error);
+          } finally {
             setIsLocating(false);
           }
-        );
-      }
-    };
-
+        }
+      );
+    }
+  };
     getAutoLocation();
   }, []); 
 
