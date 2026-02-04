@@ -84,10 +84,10 @@ app.post('/api/contact', async (req, res) => {
 
 app.get('/api/cart/:userId', async (req, res) => {
   try {
-    const user = await User.findById(req.params.userId);
-    res.json(user.cart);
+    const cart = await Cart.findOne({ userId: req.params.userId });
+    res.json(cart ? cart.items : []);
   } catch (err) {
-    res.status(500).json({ message: "Error fetching cart" });
+    res.status(500).json({ error: err.message });
   }
 });
 

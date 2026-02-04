@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom"; // Import Link from react-router-dom
+import { Link } from "react-router-dom"; 
 import "./Footer.css";
 
 const Footer = () => {
@@ -7,7 +7,7 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer-content">
         <div className="footer-left">
-          <div className="footer-logo">🛠️  HandyHub</div>
+          <div className="footer-logo">HandyHub</div>
           <p className="footer-desc">
             We offer a wide range of handyman services to meet all your needs,
             from minor fixes to major renovations.
@@ -47,7 +47,7 @@ const Footer = () => {
 
       <div className="footer-bottom">
         <p>Powered by HandyHub</p>
-        <p>©2024 All rights reserved.</p>
+        <p>©2026 All rights reserved.</p>
       </div>
 
       <div className="footer-shape"></div>
