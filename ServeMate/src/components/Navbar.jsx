@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { ShoppingCart, User, Search, MapPin, LogOut } from 'lucide-react';
+import { ShoppingCart, User, Search, MapPin, LogOut, Navigation } from 'lucide-react'; 
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import './Navbar.css';
@@ -10,16 +10,48 @@ const Navbar = ({ cartItems }) => {
   const { currentUser, logout } = useAuth();
   const navigate = useNavigate();
   const serviceSuggestions = ['home repairs', 'decorating', 'plumbing', 'electrical', 'carpentry', 'furniture assembly'];
+  
   const [placeholder, setPlaceholder] = useState('Search for "maid"');
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [navbarItems, setNavbarItems] = useState(cartItems || []);
   const [showUserMenu, setShowUserMenu] = useState(false);
   
-  // New State for Search and Location
   const [searchQuery, setSearchQuery] = useState('');
   const [locationQuery, setLocationQuery] = useState('');
+  const [isLocating, setIsLocating] = useState(false); 
   
   const userMenuRef = useRef(null);
+
+  useEffect(() => {
+    const getAutoLocation = () => {
+      if ("geolocation" in navigator) {
+        setIsLocating(true);
+        navigator.geolocation.getCurrentPosition(
+          async (position) => {
+            const { latitude, longitude } = position.coords;
+            try {
+              const response = await fetch(
+                `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`
+              );
+              const data = await response.json();
+              const city = data.address.city || data.address.town || data.address.village || data.address.state;
+              if (city) setLocationQuery(city);
+            } catch (error) {
+              console.error("Geocoding failed:", error);
+            } finally {
+              setIsLocating(false);
+            }
+          },
+          (error) => {
+            console.warn("Location blocked by user:", error.message);
+            setIsLocating(false);
+          }
+        );
+      }
+    };
+
+    getAutoLocation();
+  }, []); 
 
   useEffect(() => {
     setNavbarItems(cartItems || []);
@@ -35,7 +67,6 @@ const Navbar = ({ cartItems }) => {
   }, []);
 
   const handleSearch = (e) => {
-    // Trigger on Enter key or when manually called (like icon click)
     if (e.key === 'Enter' || e.type === 'click') {
       navigate('/hire', { 
         state: { 
@@ -76,14 +107,20 @@ const Navbar = ({ cartItems }) => {
           <div className="input-location-wrapper">
             <input
               type="text"
-              placeholder="Enter Location"
+              placeholder={isLocating ? "Locating..." : "Enter Location"}
               className="input-location"
               value={locationQuery}
               onChange={(e) => setLocationQuery(e.target.value)}
               onKeyDown={handleSearch}
             />
-            <MapPin className="location-icon" size={18} />
+
+            {isLocating ? (
+              <Navigation className="location-icon rotating" size={18} />
+            ) : (
+              <MapPin className="location-icon" size={18} />
+            )}
           </div>
+
           <div className="input-service-wrapper">
             <input
               type="text"
@@ -100,6 +137,7 @@ const Navbar = ({ cartItems }) => {
               style={{ cursor: 'pointer' }}
             />
           </div>
+
           <div className="icon-buttons">
             <button className="icon-button" onClick={() => setIsCartOpen(!isCartOpen)}>
               <ShoppingCart size={22} />
