@@ -7,6 +7,7 @@ const jwt = require('jsonwebtoken');
 
 const User = require('./models/User');
 const Contact = require('./models/Contact');
+const Cart = require('./models/Cart');
 
 const app = express();
 
@@ -92,11 +93,16 @@ app.get('/api/cart/:userId', async (req, res) => {
 
 app.post('/api/cart/sync', async (req, res) => {
   const { userId, cartItems } = req.body;
+
   try {
-    await User.findByIdAndUpdate(userId, { cart: cartItems });
-    res.status(200).json({ message: "Cart synced" });
+    const cart = await Cart.findOneAndUpdate(
+      { userId },
+      { items: cartItems, updatedAt: Date.now() },
+      { upsert: true, new: true }
+    );
+    res.status(200).json(cart.items);
   } catch (err) {
-    res.status(500).json({ message: "Error syncing cart" });
+    res.status(500).json({ message: "Error saving cart", error: err });
   }
 });
 
